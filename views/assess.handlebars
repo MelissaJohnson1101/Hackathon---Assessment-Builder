@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <title>Assessment Generator</title>
+
+    <!--  -->
+
+    <style>
+    @media screen {
+        .forscreen { display:block; }
+        .forprinting { display:none; }
+      }
+    @media print {
+        .forscreen { display:none; }
+        .forprinting { display:block; }
+      }
+
+    #output {
+        width: 100%;
+        height: 900px;
+     
+    }
+    .border{
+        border-width: 3px;
+        border-radius: 5px;
+        border-color: gray;
+        }
+
+    box {
+        padding: 20px;
+        width: 300px;
+    }
+
+    input[type='checkbox'] {
+        width: 30px;
+        height: 30px;
+        background: white;
+        border-radius: 5px;
+        border: 2px solid #555;
+    }
+    </style>
+
+</head>
+
+<!--style="min-width:550px; width:700px;-->
+
+<body style="margin-top: 50px;">           
+
+    <div class="container-fluid" style="">
+        <div class="row">
+  <div class="col-md-5">        
+
+        <div class="jumbotron">
+            <h2>Assessment Generator</h2>
+            <small>Choose questions from the category toggles below to add to the assessment view .</small>
+
+        </div>
+
+        <div class="panel-group" id="accordion">
+
+<!--HTML & CSS -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+<a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+HTML & CSS</a>
+</h4>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse" >
+                    <div class="panel-body">
+
+                        <div class="box well" >
+                            <div id="errBox"></div>
+
+                            <table class="table  table-striped">
+                                  <tr>
+                                        <label>Add Questions</label>
+                                    </tr>
+                                      <tr>
+<!--
+                                     <td>
+                                        <input type="checkbox" id="htmlcssq" value="HTMLCSSQuestions">
+                                    </td>
+-->
+                                       <td>{{#each htmlcsscontents}}
+                                       <input type="checkbox" id="checkedbox"><pre>{{this}}</pre>
+                                        {{/each}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button class="add-button">Add</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!--LOOPS -->
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        Loops</a>
+                        </h4>
+                </div>
+                <div id="collapse4" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        <div class="box well" >
+                            <div id="errBox"></div>
+                            <table class="table  table-striped" style="">
+                                   <tr>
+                                    <td>
+                                        <label>Add Questions</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>function to display questions</td>
+                                    <td>
+                                        <input type="checkbox" id="checkedbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button onclick="doThing()">Add</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        Functions</a>
+                        </h4>
+                </div>
+                <div id="collapse3" class="panel-collapse collapse ">
+                    <div class="panel-body">
+                        <div class="box well">
+                          <div id="errBox"></div>
+                          <table class="table  table-striped" style="">
+                                   <tr>
+                                    <td>
+                                        <label>Add Questions</label>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>function to display questions</td>
+                                    <td>
+                                        <input type="checkbox" id="checkedbox">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button onclick="()">Add</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    
+    <div class="col-md-6" div id="border"> 
+        <!--      <div class="row"><textarea class="forscreen" id="output"></textarea>-->
+       <div class ="forscreen" id='output' contenteditable>
+        <img src="/CodeCraftSchoollogo.png" />
+        <h2>Assessment Area</h2>
+        <b>Good morning!</b>
+
+        <p>This assessment is meant to go beyond your knowledge. Please mark the “Unsure” box if 
+
+        you’re not confident with the answer you’ve given. You do not need to answer every question. 
+
+        You will not be graded on this test. This test is a check­in on the course.
+
+        Each question starts with a fresh start. No values from previous questions carry over.</p>
+        
+        
+      </div>
+       
+      </div>  
+     </div> 
+      </div>
+<!--    $(this);-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+//    
+//      $("input:checkbox").on('click', function () {
+//            var $box = $(this);
+//            var $value = $("input[type = 'checkbox]").val();
+//            if ($box.is(":checked")) {
+//                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//                $(group).prop("checked", false);
+//                $box.prop("checked", true);
+//                $value.clone().appendTo($('#output'));
+//            } else {
+//                $box.prop("checked", false);
+//            }
+//        });
+        
+//        $("input:checkbox").on('click', function () {
+//            var $box = $(this);
+//            if ($box.is(":checked")) {
+//                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//                $(group).prop("checked", false);
+//                $box.prop("checked", true);
+//                var checkBoxVal = document.getElementById("checkedbox").value;
+//                $("checkBoxVal").clone().appendTo($('#output'));
+//            } else {
+//                $box.prop("checked", false);
+//            }
+//        });
+////        
+        $("input:checkbox").on('click', function () {
+            var $box = $(this);
+            if ($box.is(":checked")) {
+                var group = "input:checkbox[name='" + $box.attr("name") + "']";
+                $(group).prop("checked", false);
+                $box.prop("checked", true);
+                $("input:checkbox").clone().appendTo($('#output'));
+            } else {
+                $box.prop("checked", false);
+            }
+        });
+        
+//          var checkboxValue = document.getElementById("checkedbox").value;
+        
+        
+//  $(":checkbox").live('click',function(){
+//  var input = $(this).siblings('input');
+//    $(this).find().appendTo($('#output'));
+//});  
+
+//  $('add-button').click(function(){
+//  var input = $(this).siblings('input'),
+//    $(this).parent().find().appendTo($('#output'));
+//  }
+//});  
+//        
+//    
+//    $('.add-button').click(function(evt){
+//        
+//        var $checkbox = $(evt.target);
+//        $checkbox.next().clone().appendTo($('#output'));
+//    });
+//        
+//     function printTextArea(textarea, printing) {
+//        document.getElementById(printing_div).innerHTML = document.getElementById("output").value;
+//        print();
+//    };
+    
+    </script>  
+       
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script> 
+    </script>
+</body>
+
+</html>

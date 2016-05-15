@@ -1,0 +1,30 @@
+There are a few major errors in the HTML below. 
+Please circle those errors and write a short description of the error.
+
+   <!DOCTYPE>
+
+    <head>
+
+        <html>
+
+            <title>My Document!<title>
+
+    </head>
+
+    <body>
+
+        <img src="image.jpg"></img>
+
+    <div>
+
+        </div>
+
+    </body>
+
+        </html>
+
+    <p>This is a paragraph</p>
+
+    <link href="http://google.com">Link to Google</link>
+
+                                                    [] Unsure

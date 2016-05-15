@@ -1,0 +1,10 @@
+Below is a snippet from a valid HTML page. 
+What will display on the page?
+
+    <p>Hello <!­­ World ­­> There</p>
+
+        <!­­ <p>How are you?</p> ­­>
+
+            <p>I am awesome!</p>
+
+                                    [] Unsure
